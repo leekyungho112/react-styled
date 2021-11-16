@@ -22,3 +22,34 @@ const Circle = styled(Box)`
   border-radius: 50px;
 `;
 ```
+
+### animation keyframes
+
+```js
+const animation = keyframes`
+from{
+  transform: rotate(0deg);
+}
+to{
+  transform: rotate(360deg);
+}
+`;
+const Emoji = styled.span`
+  font-size: 36px;
+`;
+
+const Box = styled.div`
+  height: 200px;
+  width: 200px;
+  background-color: tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ${animation} 1s linear infinite;
+  ${Emoji} {
+    &:hover {
+      font-size: 98px;
+    }
+  }
+`;
+```

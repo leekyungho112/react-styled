@@ -1,33 +1,23 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-const Father = styled.div`
+const Title = styled.h1`
+  color: ${(props) => props.theme.textColor};
+`;
+
+const Wrapper = styled.div`
   display: flex;
-`;
-const Box = styled.div`
-  background-color: ${(props) => props.bgColor};
-  width: 100px;
-  height: 100px;
-`;
-const BoxTwo = styled.div`
-  background-color: tomato;
-  width: 100px;
-  height: 100px;
-`;
-const Text = styled.span`
-  color: white;
-`;
-
-const Circle = styled(Box)`
-  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 
 function App() {
   return (
-    <Father>
-      <Box bgColor="teal" />
-      <Circle bgColor="tomato" />
-    </Father>
+    <Wrapper>
+      <Title>Hello</Title>
+    </Wrapper>
   );
 }
 

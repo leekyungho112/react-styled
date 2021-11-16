@@ -53,3 +53,11 @@ const Box = styled.div`
   }
 `;
 ```
+
+## Typescript 적용하기
+
+- 기존 프로젝트에 적용시
+
+```js
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+```

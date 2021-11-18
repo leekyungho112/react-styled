@@ -61,3 +61,35 @@ const Box = styled.div`
 ```js
 npm install --save typescript @types/node @types/react @types/react-dom @types/jest
 ```
+
+-props required여부를 정해줄때 optional Props을 줄때 ? 을 사용한다.
+
+```js
+interface CircleProps {
+  bgColor: string;
+  borderColor?: string;
+}
+```
+
+## CRYPTO TRACKER
+
+- react-query를 사용하기 전에는 개발자의 로직에 따라 api를 fetch하였지만
+
+```js
+  const [coins, setCoins] = useState<CoinInterface[]>([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    (async () => {
+      const response = await fetch('https://api.coinpaprika.com/v1/coins');
+      const json = await response.json();
+      setCoins(json.slice(0, 100));
+      setLoading(false);
+    })();
+  }, []);
+```
+
+- react-query를 사용한후에는 state들과 fetch를 대체할수 있게 되었다.
+
+```js
+const { isLoading, data } = useQuery<ICoin[]>('allCoins', fetchCoins);
+```

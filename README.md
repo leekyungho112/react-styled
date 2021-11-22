@@ -97,3 +97,27 @@ const { isLoading, data } = useQuery<ICoin[]>('allCoins', fetchCoins);
 ### PreView
 
 [Crypto Tracker](https://leekyungho112.github.io/react-styled/)
+
+### state management를 사용하지 않고 토글 dark/light mode 만들어보기
+
+- state를 사용하기 위해 themeprovider를 app 컴포넌트에 위치시킨다.
+- 위와같이 했을 경우 app컴포넌트에서 자식에게 prop을 전달해야 하는데 이때 거쳐가는 과정이 2단계 혹은 그 이상이 될수가 있다. app(isdark, modifiFn) -> Router -> Coins
+
+### Recoil 라이브러리를 활용한 state 전역관리
+
+```js
+export const isDarkAtom = atom({
+  key: 'isDark',
+  default: false,
+});
+```
+
+```js
+const isDark = useRecoilValue(isDarkAtom);
+```
+
+- modifyFn useSetRecoilState
+
+```js
+const setDarkAtom = useSetRecoilState(isDarkAtom);
+```
